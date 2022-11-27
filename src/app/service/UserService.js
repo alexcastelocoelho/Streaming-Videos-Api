@@ -1,9 +1,10 @@
 const UserRepository = require("../repository/UserRepository")
 
 class UserService {
-    async create(payload) {
+    async create(payload) {                   
         const result = await UserRepository.create(payload)
-        return result
+        return result      
+       
     }
 
     async list(payload) {
