@@ -19,7 +19,12 @@ const VideoSchema = new mongoose.Schema(
 
         genre: {
             type: String,
-            required: true
+            required: true        
+        },
+
+        tags: {
+            type: [String],
+            required: true           
         }
       
     },
