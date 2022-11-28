@@ -22,10 +22,10 @@ const VideoSchema = new mongoose.Schema(
             required: true        
         },
 
-        tags: {
-            type: [String],
+        tags: [{
+            type: String,
             required: true           
-        }
+        } ]
       
     },
     {versionKey: false}
