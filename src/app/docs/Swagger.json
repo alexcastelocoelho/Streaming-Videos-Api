@@ -1,0 +1,405 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "streaming videos",
+        "description":  "application of a video streaming platform that will be categorized by tags",        
+        "contact": {
+            "name": "Alex Coelho",
+            "url": "https://github.com/alexcastelocoelho"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333/",
+            "description": "application server"
+        }
+    ],
+    "paths": {
+        "/users": {
+            "post": {
+                "summary": "Create a new user",
+                "description": "route to Create a new user",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/User"
+                           },
+                           "examples": {
+                            "user":{
+                                "value": {
+                                    "name": "douglas",
+                                    "cpf": "371.118.543-65",
+                                    "birthday": "08/04/2004",
+                                    "email": "doug@gmail.com",
+                                    "password": "prince!@&*"
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "get": {
+                "description": "list all users",
+                "summary": "route to List all users",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Bad request"
+                    }
+                }
+            }
+            
+        },
+        "/users/{id}": {
+            "get": {
+                "summary": "list a single user",
+                "description": "route to list a single user",
+                "tags": ["Users"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "sdsd",
+                        "required": true
+                        
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "put": {
+                "summary": "Update a user",
+                "description": "route to Update a user",
+                "tags": ["Users"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "sdsd",
+                        "required": true
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/User"
+                           },
+                           "examples": {
+                            "user":{
+                                "value": {
+                                    "name": "douglas",
+                                    "cpf": "371.118.543-65",
+                                    "birthday": "08/04/2004",
+                                    "email": "doug@gmail.com",
+                                    "password": "prince!@&*"
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "delete": {
+                "summary": "delete user",
+                "description": "route to delete User",
+                "tags": ["Users"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a person",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted User"                        
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/videos": {
+            "post": {
+                "summary": "Create a video",
+                "description": "route to Create a video",
+                "tags": ["Videos"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/Video"
+                           },
+                           "examples": {
+                            "user":{
+                                "value": {
+                                    "title": "aprenda node.js",
+                                    "description": "desenvolvimento de aplicações com node",
+                                    "author": "videoCurso",
+                                    "genre": "educação",
+                                    "tags":["node", "Api", "javascript"]	
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Video"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "get": {
+                "description": "list all videos",
+                "summary": "route to List all videos",
+                "tags": ["Videos"],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Video"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Bad request"
+                    }
+                }
+            }
+            
+        },
+        "/videos/{id}": {
+            "get": {
+                "summary": "List a single video",
+                "description": "route to List a single video",
+                "tags": ["Videos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "video id",
+                        "required": true
+                        
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Video"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "put": {
+                "summary": "Update a video",
+                "description": "route to Update a video",
+                "tags": ["Videos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "video id",
+                        "required": true
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/Video"
+                           },
+                           "examples": {
+                            "user":{
+                                "value": {
+                                    "title": "aprenda node.js",
+                                    "description": "desenvolvimento de aplicações com node",
+                                    "author": "videoCurso",
+                                    "genre": "educação",
+                                    "tags":["node", "Api", "javascript"]
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Video"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "delete": {
+                "summary": "delete a video",
+                "description": "route to delete a video",
+                "tags": ["Videos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a video",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted Video"                        
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+        
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "birthday": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Video": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "genre": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array"                        
+                    }
+                }
+            }
+        }
+    }
+}
