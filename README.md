@@ -34,8 +34,8 @@ create an .env file and set the environment variables. use the .env.example file
 
  ```
 
-## endpoints aplication 
-#####see below examples of how you should insert in the body of the postman to use the application endpoints
+## 📄 endpoints aplication 
+#####see below examples of how you should insert in the body of the postman/insomnia to use the application endpoints
 * user example
 ```
 {
@@ -52,11 +52,11 @@ create an .env file and set the environment variables. use the .env.example file
 
 * endpoints user 🧑
  ```
- post -> ('/users/) - create user
- get -> ('/users/) - list users
- get -> ('/users/:id) - list a user
- put -> ('/users/:id) - update user
- delete -> ('/users/:id) - delete user
+ post -> ('/users/') - create user
+ get -> ('/users/') - list users
+ get -> ('/users/:id') - list a user
+ put -> ('/users/:id') - update user
+ delete -> ('/users/:id') - delete user
  ```
 
 * tag example
@@ -69,18 +69,18 @@ create an .env file and set the environment variables. use the .env.example file
 ```
  * endpoints tag 📝  
  ```
- post -> ('/videos/) - create tag
- get -> ('/videos/) - list tags
- get -> ('/:title_tag/videos) - list videos by tag
- put -> ('/tags/:id) - update tag
- delete -> ('/tags/:id) - delete tg
+ post -> ('/tags/') - create tag
+ get -> ('/tags/') - list tags
+ get -> ('/:title_tag/videos') - list videos by tag
+ put -> ('/tags/:id') - update tag
+ delete -> ('/tags/:id') - delete tag
  ```
 
 * video example
 ```
 {
 	"title": "aprenda a construir Api com node",
-	"description": "inicie e crie seu primeiro projeto com Apis ",
+	"description": "inicie e crie seu primeiro projeto com node ",
 	"author": "videoCurso",
 	"genre": "programação",
 	"keywords":["node", "api", "rest"],	
@@ -96,11 +96,11 @@ step by step:
 
  * endpoints video 🎥 
  ```
- post -> ('/videos/) - create video
- get -> ('/videos/) - list videos
- get -> ('/videos/:id) - list a video
- put -> ('/videos/:id) - update video
- delete -> ('/videos/:id) - delete video
+ post -> ('/videos/') - create video
+ get -> ('/videos/') - list videos
+ get -> ('/videos/:id') - list a video
+ put -> ('/videos/:id') - update video
+ delete -> ('/videos/:id') - delete video
  ```
 
  
