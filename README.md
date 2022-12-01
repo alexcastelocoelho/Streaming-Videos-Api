@@ -36,7 +36,7 @@ create an .env file and set the environment variables. use the .env.example file
  ```
 
 ## 📄 endpoints aplication 
-#####see below examples of how you should insert in the body of the postman/insomnia to use the application endpoints
+##### see below examples of how you should insert in the body of the postman/insomnia to use the application endpoints
 * user example
 ```
 {
