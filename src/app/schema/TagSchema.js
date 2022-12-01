@@ -6,14 +6,9 @@ const TagSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        genero_tag: {
-            type: String,
-            required: true
-        },
-
-        category:[ {
-                type: mongoose.Schema.Types.ObjectId, ref: "Video",
-       } ]       
+        video: [{
+            type: mongoose.Schema.Types.ObjectId, ref: "Video"
+        }]             
       
     },
     {versionKey: false}
