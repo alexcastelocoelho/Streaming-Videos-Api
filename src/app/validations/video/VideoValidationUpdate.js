@@ -8,7 +8,8 @@ module.exports = async (req, res, next) => {
           description: joi.string().max(90).required(),
           author: joi.string().min(3).max(20).required(),
           genre: joi.string().min(4).required(),
-          tags: joi.array().min(1).message("tags cannot be empty").required()
+          keywords: joi.array().min(1).message("keywords cannot be empty").required(),
+          tag: joi.object({_id: joi.string().hex().length(24)}).required()
         })
 
         const {error} = await validVideo.validate(req.body, {
