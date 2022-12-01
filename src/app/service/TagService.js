@@ -1,5 +1,4 @@
 const TagRepository = require("../repository/TagRepository")
-const VideoRepository = require("../repository/VideoRepository")
 
 class TagService {
     async create(payload) {                   
@@ -13,10 +12,10 @@ class TagService {
         return result
     }
 
-    async getVideoTag(title_tag) {                
-            const result = await TagRepository.getVideoTag(title_tag)
-            return result                 
-        
+    async getVideoTag(title_tag) {           
+        const result = await TagRepository.getVideoTag(title_tag)
+        return result         
+                
     }
 
     async update(id, payload) {
