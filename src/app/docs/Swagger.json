@@ -204,7 +204,11 @@
                                     "description": "desenvolvimento de aplicações com node",
                                     "author": "videoCurso",
                                     "genre": "educação",
-                                    "tags":["node", "Api", "javascript"]	
+                                    "keywords":["node", "Api", "javascript"],
+                                    "tag": {
+                                        "_id": "63880e31002ebd80c436c02f"
+                                    }
+                                    	
                                 }
                             }
                            }
@@ -309,7 +313,10 @@
                                     "description": "desenvolvimento de aplicações com node",
                                     "author": "videoCurso",
                                     "genre": "educação",
-                                    "tags":["node", "Api", "javascript"]
+                                    "keywords":["node", "Api", "javascript"],
+                                    "tag": {
+                                        "_id": "63880e31002ebd80c436c02f"
+                                    }
                                 }
                             }
                            }
@@ -349,6 +356,168 @@
                 "responses": {
                     "200": {
                         "description": "deleted Video"                        
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/tags": {
+            "post": {
+                "summary": "Create a tag",
+                "description": "route to Create a tag",
+                "tags": ["Tags"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/Tag"
+                           },
+                           "examples": {
+                            "tag":{
+                                "value": {
+                                    "title_tag": "entretenimento"                                    	
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Tag"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "get": {
+                "description": "list all tags",
+                "summary": "route to List all tags",
+                "tags": ["Tags"],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Tag"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Bad request"
+                    }
+                }
+            }
+            
+        },
+        "/tags/{id}": {
+            "get": {
+                "summary": "List a single tag",
+                "description": "route to List a single tag",
+                "tags": ["Tags"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "tag id",
+                        "required": true
+                        
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Tag"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "put": {
+                "summary": "Update a tag",
+                "description": "route to Update a tag",
+                "tags": ["Tags"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "tag id",
+                        "required": true
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                           "schema": {
+                                "$ref": "#/components/schemas/Tag"
+                           },
+                           "examples": {
+                            "user":{
+                                "value": {
+                                    "title_tag": "educação"
+                                }
+                            }
+                           }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Tag"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    }
+
+                }
+            },
+            "delete": {
+                "summary": "delete a tag",
+                "description": "route to delete a tag",
+                "tags": ["Tags"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "parameter to delete a tag",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "deleted tag"                        
                     },
                     "404": {
                         "description": "Not Found"
@@ -395,8 +564,22 @@
                     "genre": {
                         "type": "string"
                     },
-                    "tags": {
+                    "keywords": {
                         "type": "array"                        
+                    },
+                    "tag": {
+                        "type": "object"
+                    }
+                }
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "title_tag": {
+                        "type": "string"
+                    },
+                    "video": {
+                        "type": "object"
                     }
                 }
             }
