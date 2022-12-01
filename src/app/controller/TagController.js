@@ -24,8 +24,8 @@ class TagController {
             const result = await TagService.getVideoTag(req.params.title_tag) 
             return res.status(200).json(result)
         } catch (error) {
-            // return res.status(400).json(error)
-            console.log(error)
+            return res.status(400).json(error)
+            
         }
     }
 
